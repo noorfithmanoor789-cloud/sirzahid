@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Teachers' Day — Sir Zahid Korejo</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Georgia', 'Segoe UI', serif;
+    background: linear-gradient(-45deg, #0f0c29, #1a1a2e, #24243e, #302b63);
+    background-size: 400% 400%;
+    animation: gradientBG 18s ease infinite;
+    color: #f5f5f5;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Floating golden particles */
+  .particle {
+    position: fixed;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.55);
+    pointer-events: none;
+    animation: float linear infinite;
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.7);
+  }
+
+  @keyframes float {
+    from { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+    to { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 70px 25px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+  }
+
+  /* Hero emblem */
+  .hero-emoji {
+    font-size: 85px;
+    display: inline-block;
+    animation: gentleFloat 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.6));
+  }
+
+  @keyframes gentleFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+
+  h1 {
+    font-family: 'Georgia', serif;
+    font-size: clamp(2rem, 5.5vw, 3.6rem);
+    background: linear-gradient(90deg, #d4af37, #f5e6a8, #d4af37);
+    background-size: 300% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 5s linear infinite;
+    margin: 25px 0 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+  }
+
+  @keyframes shine {
+    to { background-position: 300% center; }
+  }
+
+  .teacher-name {
+    font-size: clamp(1.3rem, 3vw, 1.9rem);
+    color: #f5e6a8;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+    font-weight: 400;
+    font-style: italic;
+    opacity: 0.95;
+  }
+
+  .subtitle {
+    font-size: clamp(1rem, 2.3vw, 1.25rem);
+    opacity: 0.88;
+    min-height: 45px;
+    letter-spacing: 0.5px;
+    line-height: 1.7;
+    font-style: italic;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .cursor {
+    display: inline-block;
+    width: 2px;
+    background: #d4af37;
+    margin-left: 3px;
+    animation: blink 0.9s infinite;
+  }
+
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+
+  /* Divider */
+  .divider {
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #d4af37, transparent);
+    margin: 45px auto;
+  }
+
+  /* Cards */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 28px;
+    margin-top: 30px;
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 18px;
+    padding: 35px 25px;
+    transition: all 0.45s ease;
+    text-align: center;
+  }
+
+  .card:hover {
+    transform: translateY(-10px);
+    background: rgba(212, 175, 55, 0.1);
+    border-color: rgba(212, 175, 55, 0.65);
+    box-shadow: 0 18px 45px rgba(212, 175, 55, 0.22);
+  }
+
+  .card .icon {
+    font-size: 42px;
+    margin-bottom: 18px;
+    display: block;
+  }
+
+  .card h3 {
+    color: #d4af37;
+    margin-bottom: 14px;
+    font-size: 1.15rem;
+    font-family: 'Georgia', serif;
+    letter-spacing: 0.8px;
+    font-weight: 600;
+  }
+
+  .card p {
+    font-size: 0.95rem;
+    opacity: 0.85;
+    line-height: 1.75;
+    font-style: italic;
+  }
+
+  /* Button */
+  .btn {
+    margin-top: 60px;
+    padding: 17px 48px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    font-family: 'Georgia', serif;
+    letter-spacing: 1.5px;
+    border: 1.5px solid #d4af37;
+    border-radius: 50px;
+    background: transparent;
+    color: #d4af37;
+    cursor: pointer;
+    transition: all 0.35s ease;
+    text-transform: uppercase;
+  }
+
+  .btn:hover {
+    background: linear-gradient(135deg, #d4af37, #f5e6a8);
+    color: #1a1a2e;
+    transform: scale(1.05);
+    box-shadow: 0 12px 40px rgba(212, 175, 55, 0.5);
+  }
+
+  .btn:active { transform: scale(0.97); }
+
+  /* Confetti */
+  .confetti {
+    position: fixed;
+    width: 9px;
+    height: 9px;
+    top: -10px;
+    z-index: 9999;
+    pointer-events: none;
+    animation: fall linear forwards;
+  }
+
+  @keyframes fall {
+    to {
+      transform: translateY(105vh) rotate(720deg);
+      opacity: 0;
+    }
+  }
+
+  /* Thank you message */
+  .thanks-msg {
+    margin-top: 35px;
+    font-size: 1.25rem;
+    color: #f5e6a8;
+    opacity: 0;
+    transition: opacity 0.7s ease;
+    font-weight: 500;
+    font-style: italic;
+    letter-spacing: 0.8px;
+  }
+
+  .thanks-msg.show { opacity: 1; }
+
+  footer {
+    margin-top: 80px;
+    opacity: 0.55;
+    font-size: 0.88rem;
+    padding-bottom: 35px;
+    letter-spacing: 0.5px;
+    font-style: italic;
+  }
+
+  .heart {
+    color: #d4af37;
+    animation: pulse 1.4s infinite;
+    display: inline-block;
+  }
+
+  @keyframes pulse { 50% { transform: scale(1.25); } }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="hero-emoji">🎓</div>
+
+  <h1>Happy Teachers' Day</h1>
+  <p class="teacher-name">Sir Zahid Korejo</p>
+  <p class="subtitle" id="typewriter"></p>
+
+  <div class="divider"></div>
+
+  <div class="cards">
+    <div class="card">
+      <span class="icon">📖</span>
+      <h3>A Guiding Light</h3>
+      <p>You illuminated every path and turned every difficulty into a lesson worth learning.</p>
+    </div>
+    <div class="card">
+      <span class="icon">🌟</span>
+      <h3>An Inspiration</h3>
+      <p>Your wisdom and dedication have shaped not just minds, but character and purpose.</p>
+    </div>
+    <div class="card">
+      <span class="icon">💐</span>
+      <h3>Heartfelt Gratitude</h3>
+      <p>Thank you for your patience, your kindness, and the endless belief you place in us.</p>
+    </div>
+    <div class="card">
+      <span class="icon">🎯</span>
+      <h3>A Lasting Legacy</h3>
+      <p>The lessons you have taught will echo far beyond the classroom, for a lifetime.</p>
+    </div>
+  </div>
+
+  <button class="btn" onclick="celebrate()">Celebrate This Day</button>
+  <div class="thanks-msg" id="thanksMsg">Thank you, Sir Zahid Korejo — you are truly exceptional.</div>
+
+  <footer>
+    Crafted with <span class="heart">♡</span> in honor of an extraordinary teacher
+  </footer>
+</div>
+
+<script>
+  // ---- Typewriter effect ----
+  const text = "To the mentor who shaped our minds and inspired our futures — thank you, Sir Zahid Korejo.";
+  let i = 0;
+  const typeEl = document.getElementById('typewriter');
+
+  function type() {
+    if (i < text.length) {
+      typeEl.innerHTML = text.substring(0, i + 1) + '<span class="cursor">&nbsp;</span>';
+      i++;
+      setTimeout(type, 55);
+    } else {
+      typeEl.innerHTML = text + '<span class="cursor">&nbsp;</span>';
+    }
+  }
+  type();
+
+  // ---- Floating particles ----
+  function createParticle() {
+    const p = document.createElement('div');
+    p.classList.add('particle');
+    const size = Math.random() * 5 + 2;
+    p.style.width = size + 'px';
+    p.style.height = size + 'px';
+    p.style.left = Math.random() * 100 + 'vw';
+    p.style.animationDuration = (Math.random() * 9 + 7) + 's';
+    p.style.opacity = Math.random() * 0.6 + 0.3;
+    document.body.appendChild(p);
+    setTimeout(() => p.remove(), 16000);
+  }
+  setInterval(createParticle, 500);
+  for (let k = 0; k < 12; k++) setTimeout(createParticle, k * 250);
+
+  // ---- Confetti burst ----
+  function celebrate() {
+    const colors = ['#d4af37', '#f5e6a8', '#ffffff', '#c9a227', '#e8d99a', '#fffbe6'];
+    for (let n = 0; n < 140; n++) {
+      const c = document.createElement('div');
+      c.classList.add('confetti');
+      c.style.left = Math.random() * 100 + 'vw';
+      c.style.background = colors[Math.floor(Math.random() * colors.length)];
+      c.style.width = Math.random() * 9 + 5 + 'px';
+      c.style.height = Math.random() * 9 + 5 + 'px';
+      c.style.borderRadius = Math.random() > 0.5 ? '50%' : '1px';
+      c.style.animationDuration = (Math.random() * 2 + 2.2) + 's';
+      c.style.animationDelay = (Math.random() * 0.6) + 's';
+      document.body.appendChild(c);
+      setTimeout(() => c.remove(), 4500);
+    }
+    document.getElementById('thanksMsg').classList.add('show');
+  }
+</script>
+</body>
+</html>
